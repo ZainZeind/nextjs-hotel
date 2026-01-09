@@ -1,3 +1,7 @@
+'use client'
+
+import { login, signup } from './actions'
+
 const SignInPage = () => {
   return (
     <div className="bg-stone-50 min-h-screen">
@@ -7,7 +11,7 @@ const SignInPage = () => {
             Welcome Back
           </h1>
           <p className="mt-6 text-lg leading-8 text-stone-600">
-            Please sign in to access your account.
+            Please sign in to access your account or sign up to create one.
           </p>
         </div>
         <div className="mt-12 max-w-md mx-auto bg-white p-8 rounded-xl shadow-lg border border-stone-100">
@@ -40,12 +44,22 @@ const SignInPage = () => {
                 placeholder="Password"
               />
             </div>
-            <div>
+            <div className="flex flex-col gap-4">
               <button
-                type="submit"
+                formAction={async (formData) => {
+                  await login(formData)
+                }}
                 className="w-full inline-flex items-center justify-center px-6 py-4 border border-transparent rounded-lg shadow-lg text-sm font-bold text-white bg-slate-900 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 transition-all uppercase tracking-widest"
               >
                 Sign In
+              </button>
+              <button
+                formAction={async (formData) => {
+                  await signup(formData)
+                }}
+                className="w-full inline-flex items-center justify-center px-6 py-4 border-2 border-slate-900 rounded-lg shadow-sm text-sm font-bold text-slate-900 bg-transparent hover:bg-slate-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-500 transition-all uppercase tracking-widest"
+              >
+                Sign Up
               </button>
             </div>
           </form>

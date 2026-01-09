@@ -8,16 +8,13 @@ const HeaderSection = ({
     subTitle: string;
 }) => {
   return (
-    <header className="relaive h-60 text-white overflow-hidden">
+    <header className="relative h-60 text-white overflow-hidden">
         <div className="absolute inset-0">
             
         </div>
 
     </header>
-    <div>
-      
-    </div>
   )
 }
 
-export default header-section
+export default HeaderSection
